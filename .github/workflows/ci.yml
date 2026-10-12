@@ -1,0 +1,54 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  web:
+    name: Web
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      # Until package-lock.json is committed, install from package.json and keep the lock file as an artifact.
+      - run: if [ -f package-lock.json ]; then npm ci; else npm install; fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: package-lock
+          path: package-lock.json
+      - run: npm run type-check
+      - run: npm test
+      - run: npm run build
+
+  browser:
+    name: Browser checks
+    runs-on: ubuntu-latest
+    needs: web
+    env:
+      # Sample values so the screenshots show the login link, the form and the footer links.
+      VITE_APP_URL: https://app.example.com
+      VITE_DEMO_ENDPOINT: https://example.com/demo-requests
+      VITE_SALES_EMAIL: sales@example.com
+      VITE_PRIVACY_URL: https://example.com/privacy
+      VITE_TERMS_URL: https://example.com/terms
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: if [ -f package-lock.json ]; then npm ci; else npm install; fi
+      - run: npx playwright install --with-deps chromium
+      - run: npx vite build
+      - run: |
+          npx vite preview --port 4173 --strictPort &
+          npx --yes wait-on@8 http://localhost:4173
+          node scripts/qa.mjs http://localhost:4173
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: screenshots
+          path: screenshots
