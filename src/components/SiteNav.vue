@@ -140,8 +140,8 @@ onBeforeUnmount(() => {
       </ul>
 
       <div class="ml-auto flex items-center gap-2">
-        <a v-if="site.loginUrl" :href="site.loginUrl" class="nav-item hidden sm:inline-flex">Log in</a>
-        <a href="#demo" class="btn btn-primary hidden sm:inline-flex">Book a demo</a>
+        <a v-if="site.loginUrl" :href="site.loginUrl" class="nav-item hidden md:inline-flex">Log in</a>
+        <a href="#demo" class="btn btn-primary min-h-10 px-3.5 text-[0.875rem] sm:min-h-11 sm:px-[1.125rem] sm:text-[0.9375rem]">Book a demo</a>
         <button
           ref="mobileButton"
           type="button"

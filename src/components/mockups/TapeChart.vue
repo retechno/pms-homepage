@@ -31,7 +31,9 @@ const kindClass: Record<Kind, string> = {
       <div class="grid grid-cols-[3.25rem_1fr] items-end">
         <span />
         <div class="grid" :style="{ gridTemplateColumns: `repeat(${n}, 1fr)` }">
-          <span v-for="(d, i) in nights" :key="d" class="num truncate pb-1.5 text-center text-[11px]" :class="i === 0 ? 'font-bold text-ink' : 'text-muted'">{{ d }}</span>
+          <span v-for="(d, i) in nights" :key="d" class="num truncate pb-1.5 text-center text-[11px]" :class="i === 0 ? 'font-bold text-ink' : 'text-muted'"
+            ><span class="sm:hidden">{{ d.split(' ')[1] }}</span><span class="hidden sm:inline">{{ d }}</span></span
+          >
         </div>
       </div>
       <div v-for="r in rooms" :key="r.no" class="grid grid-cols-[3.25rem_1fr] items-center border-t border-line">
