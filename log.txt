@@ -1,0 +1,40 @@
+ok   desktop-1440: no horizontal overflow
+ok   desktop-1440: 45 links checked
+ok   desktop-1440: product menu opens and closes
+ok   desktop-1440: menu link scrolls to its section
+ok   desktop-1440: charge trace tabs work with mouse and keys
+ok   desktop-1440: audience tabs switch
+ok   desktop-1440: FAQ opens
+ok   desktop-1440: demo form validates
+ok   desktop-1440: no console errors
+ok   desktop-1440: no failed requests
+ok   laptop-1280: no horizontal overflow
+ok   laptop-1280: 45 links checked
+ok   laptop-1280: product menu opens and closes
+ok   laptop-1280: menu link scrolls to its section
+ok   laptop-1280: charge trace tabs work with mouse and keys
+ok   laptop-1280: audience tabs switch
+ok   laptop-1280: FAQ opens
+ok   laptop-1280: demo form validates
+ok   laptop-1280: no console errors
+ok   laptop-1280: no failed requests
+ok   tablet-768: no horizontal overflow
+ok   tablet-768: 45 links checked
+ok   tablet-768: mobile menu opens and closes on a link
+ok   tablet-768: charge trace tabs work with mouse and keys
+ok   tablet-768: audience tabs switch
+ok   tablet-768: FAQ opens
+ok   tablet-768: demo form validates
+ok   tablet-768: no console errors
+ok   tablet-768: no failed requests
+ok   mobile-390: no horizontal overflow
+ok   mobile-390: 45 links checked
+ok   mobile-390: mobile menu opens and closes on a link
+ok   mobile-390: charge trace tabs work with mouse and keys
+ok   mobile-390: audience tabs switch
+ok   mobile-390: FAQ opens
+ok   mobile-390: demo form validates
+ok   mobile-390: no console errors
+ok   mobile-390: no failed requests
+
+all checks passed
