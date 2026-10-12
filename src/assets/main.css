@@ -1,0 +1,227 @@
+@import 'tailwindcss';
+
+/*
+  Design tokens. The brand colours and the room-status colours are the ones the
+  KamaraPMS application itself uses (web/src/assets/tailwind.css), so the product
+  pictures on this page look like the product.
+*/
+@theme static {
+  --font-sans: 'Plus Jakarta Sans Variable', ui-sans-serif, system-ui, sans-serif;
+
+  --color-ink: #1c2128;
+  --color-ink-soft: #3a424d;
+  --color-muted: #5b6470;
+  --color-line: #e3e6ea;
+  --color-line-strong: #cfd4da;
+  --color-paper: #ffffff;
+  --color-mist: #f5f7f8;
+  --color-mist-2: #edf0f2;
+
+  --color-pine: #0e3a31;
+  --color-pine-2: #134a3e;
+  --color-pine-line: #2a5d51;
+  --color-pine-text: #c9ddd7;
+
+  --color-ledger: #1f6f5c;
+  --color-ledger-strong: #185a4a;
+  --color-ledger-soft: #e3f2ee;
+  --color-ledger-bright: #7fd0b9;
+
+  /* Room and booking states, as in the application */
+  --color-st-dirty: #a8460a;
+  --color-st-dirty-bg: #fdebdc;
+  --color-st-cleaning: #5b3bb0;
+  --color-st-cleaning-bg: #efe9fb;
+  --color-st-clean: #1b7a4b;
+  --color-st-clean-bg: #e3f3ea;
+  --color-st-booked: #2348a8;
+  --color-st-booked-bg: #e4ebfb;
+  --color-st-booked-line: #b7c8f2;
+  --color-st-inhouse: #2552c4;
+  --color-st-noshow: #8a5300;
+  --color-st-noshow-bg: #fdf1dc;
+
+  --radius-frame: 14px;
+  --radius-card: 10px;
+  --radius-control: 8px;
+  --radius-chip: 6px;
+
+  --shadow-frame: 0 1px 2px rgb(16 24 32 / 0.06), 0 12px 32px -12px rgb(16 24 32 / 0.18);
+  --shadow-lift: 0 1px 2px rgb(16 24 32 / 0.05), 0 4px 12px -4px rgb(16 24 32 / 0.12);
+
+  --container-page: 72rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  /* Anchor targets clear the sticky navigation */
+  [id] {
+    scroll-margin-top: 5rem;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-ledger);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  ::selection {
+    background: var(--color-ledger-soft);
+  }
+}
+
+@layer components {
+  .page {
+    width: 100%;
+    max-width: var(--container-page);
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+  @media (min-width: 768px) {
+    .page {
+      padding-inline: 2rem;
+    }
+  }
+
+  /* Type scale (ratio ~1.25, display steps clamp with the viewport) */
+  .t-display {
+    font-size: clamp(2.25rem, 1.4rem + 3.2vw, 3.5rem);
+    line-height: 1.06;
+    letter-spacing: -0.028em;
+    font-weight: 700;
+  }
+  .t-h2 {
+    font-size: clamp(1.75rem, 1.35rem + 1.5vw, 2.375rem);
+    line-height: 1.15;
+    letter-spacing: -0.022em;
+    font-weight: 700;
+  }
+  .t-h3 {
+    font-size: 1.25rem;
+    line-height: 1.3;
+    letter-spacing: -0.012em;
+    font-weight: 650;
+  }
+  .t-lead {
+    font-size: clamp(1.0625rem, 1rem + 0.3vw, 1.1875rem);
+    line-height: 1.6;
+  }
+  .t-label {
+    font-size: 0.875rem;
+    line-height: 1.4;
+    font-weight: 600;
+  }
+  .t-caption {
+    font-size: 0.8125rem;
+    line-height: 1.45;
+  }
+  .num {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 2.75rem;
+    padding: 0 1.125rem;
+    border-radius: var(--radius-control);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    line-height: 1;
+    white-space: nowrap;
+    transition:
+      background-color 0.15s,
+      border-color 0.15s,
+      color 0.15s;
+  }
+  .btn-primary {
+    background: var(--color-ledger);
+    color: #fff;
+  }
+  .btn-primary:hover {
+    background: var(--color-ledger-strong);
+  }
+  .btn-quiet {
+    border: 1px solid var(--color-line-strong);
+    color: var(--color-ink);
+    background: var(--color-paper);
+  }
+  .btn-quiet:hover {
+    border-color: var(--color-ink-soft);
+  }
+  .btn-on-dark {
+    background: #fff;
+    color: var(--color-pine);
+  }
+  .btn-on-dark:hover {
+    background: var(--color-ledger-soft);
+  }
+
+  .text-link {
+    color: var(--color-ledger);
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: color-mix(in srgb, var(--color-ledger) 35%, transparent);
+    text-underline-offset: 3px;
+  }
+  .text-link:hover {
+    text-decoration-color: currentColor;
+  }
+
+  /* A frame around a picture of the product */
+  .frame {
+    background: var(--color-paper);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-frame);
+    box-shadow: var(--shadow-frame);
+    overflow: hidden;
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.125rem 0.5rem;
+    border-radius: var(--radius-chip);
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.5;
+    white-space: nowrap;
+  }
+
+  .state-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.5;
+    padding: 0.125rem 0.5rem;
+    border-radius: var(--radius-chip);
+  }
+  .state-live {
+    color: var(--color-st-clean);
+    background: var(--color-st-clean-bg);
+  }
+  .state-planned {
+    color: var(--color-muted);
+    background: transparent;
+    border: 1px dashed var(--color-line-strong);
+  }
+}
