@@ -259,6 +259,8 @@ const journal = [
   opacity: 0;
 }
 @media (prefers-reduced-motion: reduce) {
+  .step,
+  .step-n,
   .swap-enter-active,
   .swap-leave-active {
     transition: none;

@@ -2,10 +2,10 @@
 /* "My tasks" for a room attendant, on a phone (design reference: KamaraPMS docs/design/5-housekeeping-mobile). Sample data. */
 type State = 'dirty' | 'cleaning' | 'clean'
 const tasks: { room: string; note: string; state: State; urgent?: boolean }[] = [
-  { room: '305', note: 'Arrival 13:00 · Deluxe', state: 'cleaning', urgent: true },
-  { room: '201', note: 'Arrival 14:00 · Deluxe', state: 'dirty', urgent: true },
-  { room: '204', note: 'Stay-over · do not disturb', state: 'dirty' },
-  { room: '310', note: 'Departure · Superior', state: 'dirty' },
+  { room: '305', note: 'Arrives 13:00', state: 'cleaning', urgent: true },
+  { room: '201', note: 'Arrives 14:00', state: 'dirty', urgent: true },
+  { room: '204', note: 'Do not disturb', state: 'dirty' },
+  { room: '310', note: 'Departure', state: 'dirty' },
   { room: '118', note: 'Done 09:42', state: 'clean' },
 ]
 const label: Record<State, string> = { dirty: 'Dirty', cleaning: 'Cleaning', clean: 'Clean' }

@@ -41,12 +41,8 @@ const groups = [
         </p>
       </div>
 
-      <dl class="mt-12 grid border-t border-pine-line sm:grid-cols-2 lg:grid-cols-3">
-        <div
-          v-for="g in groups"
-          :key="g.title"
-          class="border-b border-pine-line py-7 sm:pr-8 sm:[&:nth-child(even)]:border-l sm:[&:nth-child(even)]:pl-8 lg:[&:nth-child(even)]:border-l-0 lg:[&:nth-child(even)]:pl-0 lg:[&:not(:nth-child(3n+1))]:border-l lg:[&:not(:nth-child(3n+1))]:pl-8"
-        >
+      <dl class="mt-14 grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+        <div v-for="g in groups" :key="g.title" class="border-t border-pine-line pt-6">
           <dt class="text-[1.0625rem] font-semibold">{{ g.title }}</dt>
           <dd class="mt-2 text-[0.9375rem] leading-relaxed text-pine-text">{{ g.body }}</dd>
         </div>

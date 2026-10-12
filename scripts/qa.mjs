@@ -107,11 +107,15 @@ for (const vp of widths) {
 
   // Charge trace tabs
   await page.locator('#connected').scrollIntoViewIfNeeded()
+  const panelHas = (text) =>
+    page
+      .waitForFunction((t) => document.getElementById('trace-panel')?.textContent.includes(t), text, { timeout: 3000 })
+      .then(() => true, () => false)
   await page.getByRole('tab', { name: /Written to the ledger/ }).click()
-  if (!(await page.locator('#trace-panel').textContent()).includes('Guest ledger')) fail(`${vp.name}: trace step 3 did not show the journal`)
+  if (!(await panelHas('Guest ledger'))) fail(`${vp.name}: trace step 3 did not show the journal`)
   await page.locator('#connected').screenshot({ path: `${out}/${vp.name}-trace-journal.png` })
   await page.keyboard.press('ArrowDown')
-  if (!(await page.locator('#trace-panel').textContent()).includes('VAT return')) fail(`${vp.name}: arrow key did not move to the next trace step`)
+  if (!(await panelHas('VAT return'))) fail(`${vp.name}: arrow key did not move to the next trace step`)
   else ok(`${vp.name}: charge trace tabs work with mouse and keys`)
 
   // Audience tabs

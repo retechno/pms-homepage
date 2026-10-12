@@ -10,6 +10,7 @@ const arrivals: { name: string; meta: string; state: string; k: Readiness }[] = 
   { name: 'Daniel Hartono', meta: '210 · Superior · 3 nights', state: 'Ready', k: 'ready' },
   { name: 'PT Nusa Wisata group', meta: '6 rooms · Standard', state: '4 of 6 ready', k: 'clean' },
   { name: 'Made Wirawan', meta: 'No room yet · Family', state: 'Assign', k: 'none' },
+  { name: 'Sarah Lim', meta: '118 · Standard · 1 night', state: 'Ready', k: 'ready' },
 ]
 const departures = [
   { name: 'Budi Santoso', meta: '402 · Superior', balance: 'Rp 0' },
@@ -78,7 +79,7 @@ const nav = ['Today', 'Room status', 'Tape chart', 'Cashier', 'Performance']
         </div>
 
         <!-- Figures -->
-        <div class="mt-4 grid grid-cols-2 gap-2.5 lg:grid-cols-4">
+        <div class="mt-4 grid grid-cols-2 gap-2.5 md:grid-cols-4">
           <div class="tile">
             <p class="tile-l">Occupancy tonight</p>
             <p class="tile-n num">78%</p>
@@ -101,7 +102,7 @@ const nav = ['Today', 'Room status', 'Tape chart', 'Cashier', 'Performance']
           </div>
         </div>
 
-        <div class="mt-3 grid gap-2.5 lg:grid-cols-[1.25fr_1fr]">
+        <div class="mt-3 grid gap-2.5 md:grid-cols-[1.25fr_1fr]">
           <!-- Arrivals -->
           <div class="rounded-[var(--radius-card)] border border-line">
             <div class="flex items-center justify-between border-b border-line px-3 py-2">
@@ -115,7 +116,7 @@ const nav = ['Today', 'Room status', 'Tape chart', 'Cashier', 'Performance']
                   <p class="num truncate text-[12px] text-muted">{{ a.meta }}</p>
                 </div>
                 <span class="chip" :class="chip[a.k]">{{ a.state }}</span>
-                <span class="hidden rounded-md border border-line-strong px-2 py-1 text-[12px] font-semibold sm:inline">Check in</span>
+                <span class="hidden rounded-md border border-line-strong px-2 py-1 text-[12px] font-semibold lg:inline">Check in</span>
               </li>
             </ul>
           </div>

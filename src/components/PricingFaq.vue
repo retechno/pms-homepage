@@ -50,7 +50,7 @@ const faqs = [
   <section id="faq" class="bg-mist py-20 md:py-28" aria-labelledby="faq-title">
     <div class="page grid gap-10 lg:grid-cols-12">
       <div class="lg:col-span-4">
-        <h2 id="faq-title" class="t-h2">Questions hotels ask us</h2>
+        <h2 id="faq-title" class="t-h2">Common questions</h2>
       </div>
       <div class="lg:col-span-8">
         <details v-for="f in faqs" :key="f.q" class="faq group border-b border-line-strong/70 first:border-t">

@@ -18,8 +18,8 @@ const occ = [72, 78, 81, 88, 97, 93, 76, 69, 74, 80, 84, 90, 86, 79]
       </div>
       <span class="chip bg-mist-2 text-ink-soft">Managers only</span>
     </div>
-    <div class="grid gap-5 p-5 md:grid-cols-[1.2fr_1fr]" aria-hidden="true">
-      <table class="w-full">
+    <div class="grid gap-6 p-5" aria-hidden="true">
+      <table class="w-full whitespace-nowrap">
         <thead>
           <tr class="border-b border-line text-left text-[12px] text-muted">
             <th class="pb-2 font-medium">Month to date</th>
@@ -40,7 +40,7 @@ const occ = [72, 78, 81, 88, 97, 93, 76, 69, 74, 80, 84, 90, 86, 79]
       <div>
         <p class="font-semibold">Occupancy, last 14 nights</p>
         <p class="text-[12px] text-muted">Average 81%</p>
-        <div class="mt-3 flex h-24 items-end gap-[5px]">
+        <div class="mt-3 flex h-20 items-end gap-[5px]">
           <div v-for="(v, i) in occ" :key="i" class="flex-1 rounded-t-[3px]" :class="v >= 90 ? 'bg-st-inhouse' : 'bg-st-booked-line'" :style="{ height: v + '%' }" />
         </div>
       </div>

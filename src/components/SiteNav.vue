@@ -80,7 +80,7 @@ onBeforeUnmount(() => {
 
 <template>
   <header
-    class="sticky top-0 z-40 border-b bg-paper/95 backdrop-blur-[6px] transition-colors supports-[backdrop-filter]:bg-paper/85"
+    class="sticky top-0 z-40 border-b bg-paper transition-colors"
     :class="scrolled ? 'border-line' : 'border-transparent'"
   >
     <a
