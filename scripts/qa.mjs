@@ -19,6 +19,7 @@ const failures = []
 const fail = (msg) => {
   failures.push(msg)
   console.error('FAIL', msg)
+  if (process.env.GITHUB_ACTIONS) console.log(`::error title=Browser check::${msg.replace(/\n/g, ' ')}`)
 }
 const ok = (msg) => console.log('ok  ', msg)
 
